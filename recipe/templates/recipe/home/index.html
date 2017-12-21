@@ -1,0 +1,44 @@
+{% extends 'recipe/base/base.html' %}
+{% load staticfiles %}
+  {% block content %}
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">A Warm Welcome!</h1>
+        <p class="lead">Ever had that feeling, you come home after a long day. You walk into the kitchen thinking about what you are going to eat tonight. However once you open the fridge, you seem
+        to have only bits an pieces however, not enough to create a proper dish. This site is there to help you. Fill out the form below and we will try to find a proper dish for you to cook. </p>
+        <form action="/name/" method="post">
+          {% csrf_token %}
+          {{ form }}
+        </form>
+        <a href="{% url 'recipe_list' %}" class="btn btn-primary btn-lg">Find me food!</a>
+      </header>
+
+      <!-- Page Features -->
+      <div class="row text-center">
+
+        {% for i in x %}
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{% static i.picture %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{ i.title }}</h4>
+              <p class="card-text">{{ i.text }}</p>
+            </div>
+            <div class="card-footer">
+              <p> Viewed {{ i.seen }} times </p>
+              <a href="{% url 'recipe' pk=i.pk %}" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}
