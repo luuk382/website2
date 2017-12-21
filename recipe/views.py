@@ -24,6 +24,7 @@ def index(request):
         form = FoodInput()
     n = Recipe.objects.order_by('seen')
     x = n[0:4]
+    x = reversed(x)
     return render(request, 'recipe/home/index.html', {'x' : x, 'form': form})
 
 def recipe(request, pk):
