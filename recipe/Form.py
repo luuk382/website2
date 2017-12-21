@@ -6,10 +6,12 @@ class FoodInput(forms.Form):
     vegetables = forms.CharField(label='Vegetables',
                                  widget=forms.TextInput(attrs={
                                     'placeholder': 'Onion, Bell pepper',
-                                    'value': 'Onion, Bell pepper'
+                                    'value': 'Onion, Bell pepper',
+                                    'size': '25'
                                  }))
     meat = forms.CharField(label='Meat',
                            widget=forms.TextInput(attrs={
                                     'placeholder': 'Minced meat, Chickenbreast',
-                                    'value': 'Minced meat, Chickenbreast'
+                                    'value': 'Minced meat, Chickenbreast',
+                                    'size': '25'
                            }))
