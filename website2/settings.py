@@ -25,7 +25,7 @@ MEDIA_URL = '/'
 SECRET_KEY = 'a$wbr1&#53a%z7(6!c2qutu39g0zeh3)$v1hd!z20p&164htb#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'luuk382.pythonanywhere.com']
 
