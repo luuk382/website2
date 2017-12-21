@@ -7,9 +7,17 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">A Warm Welcome!</h1>
-        <p class="lead">Press the button below to see all the recipes available, or check the most viewed recipes on this site below. </p>
+        <p class="lead">Ever had that feeling, you come home after a long day. You walk into the kitchen thinking about what you are going to eat tonight. However once you open the fridge, you seem
+        to have only bits an pieces however, not enough to create a proper dish. This site is there to help you. Fill out the form below and we will try to find a proper dish for you to cook. </p>
         <br>
-        <a href="{% url 'recipe_list' c='1' %}" class="btn btn-primary btn-lg">Lets see it!</a>
+        <form method="POST">{% csrf_token %}
+          <table>
+            {% for f in form %}
+              <tr><td>{{ f.label }}<td><td>{{ f }}</td>
+            {% endfor %}
+            <tr><td><button type="submit" class="btn btn-primary btn-lg">Find food</button></td></tr>
+          </table>
+        </form>
       </header>
 
       <!-- Page Features -->
